@@ -1,9 +1,9 @@
-import 'package:ecommerce_app/Provider_folder/card_provider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:readmore/readmore.dart';
-import '../Reusable_widget/text_style_widget.dart';
-import 'main_page.dart';
+import '../../Custom_widget/text_style_widget.dart';
+import '../Bottom_navigation_bar/bottom_navigation_bar.dart';
+
 
 class DetailsPage extends StatefulWidget {
   final String image;
@@ -20,6 +20,7 @@ class _DetailsPageState extends State<DetailsPage> {
 
   bool isFavorite=false;
   bool toTap=false;
+  bool isCart = false;
 
   int selectSizeIndex=0;
   List selectedSizeName=['S','M','L','XL','XXL'];
@@ -95,7 +96,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                     toTap=false;
                                   });
                                 },
-                                child:toTap?SizedBox(height:25,width:25,child: CircularProgressIndicator(color: Colors.black54,backgroundColor: Colors.red,)): isFavorite? Icon(Icons.favorite,size: 32,color: Colors.red,):
+                                child:toTap?const SizedBox(height:25,width:25,child: CircularProgressIndicator(color: Colors.black54,backgroundColor: Colors.red,)): isFavorite? Icon(Icons.favorite,size: 32,color: Colors.red,):
                                 Icon(Icons.favorite_border,size: 32,color: Colors.black54,)
                             )),
 
@@ -248,6 +249,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("____ Price",style: textStyle17),
+
                       InkWell(
                         child: Card(
                           shape: const OutlineInputBorder(borderSide: BorderSide(color: Colors.black54)),
@@ -255,27 +257,13 @@ class _DetailsPageState extends State<DetailsPage> {
                             padding: const EdgeInsets.symmetric(horizontal: 15,vertical:5),
                             child: Row(
                               children: [
-                                Text("Add to cart",style: textStyle17),
-                                const Icon(Icons.shopping_cart,color: Colors.black54,)
+                                Text( isCart? "Remove To Cart":"Add To Cart",style: textStyle17),
+                                const Icon(Icons.shopping_cart,color:Colors.black54,)
                               ],
                             ),
                           ),
                         ),
-                       onTap: () {
-
-                       },
-                       /* onTap: (){
-                         var  data = NewArrivalModels(imageUrl: widget.image, title: widget.title, initialPrice: widget.price, ratting: widget.ratting);
-                          FirebaseFirestore.instance.collection("user").doc().collection("productAddToCart").add(data.toMap());
-                         const snackBar = SnackBar(
-                           content: Text("Product is added to cart",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 19)),
-                           duration: Duration(seconds:2),
-                           backgroundColor: Colors.black87,
-                           behavior: SnackBarBehavior.fixed,
-                         );
-                         ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                        },*/
-                      ),
+                      )
                     ],
                   ),
                 ),

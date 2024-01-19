@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/Reusable_widget/text_style_widget.dart';
-import 'package:ecommerce_app/Screen_view/user_data_page.dart';
+import '../../Custom_widget/text_style_widget.dart';
+import 'package:ecommerce_app/Screen_view/User_data_screen/user_data_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -55,6 +55,7 @@ class _LogInScreenState extends State<LogInScreen>  {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey.shade100,
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

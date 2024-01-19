@@ -1,13 +1,13 @@
-import 'package:ecommerce_app/Reusable_widget/text_style_widget.dart';
+import '../../Custom_widget/text_style_widget.dart';
 import 'package:flutter/material.dart';
-import '../Content_widget/app_bar_widget.dart';
-import '../Content_widget/carousel_slider_widget.dart';
-import '../Content_widget/new_arrivals.dart';
-import '../Content_widget/popular_list.dart';
+import 'app_bar_widget.dart';
+import 'carousel_slider_widget.dart';
+import 'new_arrival_product_list.dart';
+import 'popular_list.dart';
 
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
 
 
                     ///___ New arrivals list
-                    NewArrivalsList(),
+                    NewArrivalProductList(),
 
                   ],
                 ),

@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:uuid/uuid.dart';
-import '../Reusable_widget/text_style_widget.dart';
+import '../Custom_widget/text_style_widget.dart';
 import 'admin_model.dart';
 
 class CarouselSliderUpload extends StatefulWidget {
@@ -123,7 +123,7 @@ class _CarouselSliderUploadState extends State<CarouselSliderUpload> {
               ),
             ),*/
             Expanded(child: Container(
-              child:isPicked ? Image.file(pickedImage!):Container(),
+              child:isPicked ? Image.file(pickedImage!):Container(color: Colors.grey,),
             )),
 
             /// Text field
@@ -149,7 +149,7 @@ class _CarouselSliderUploadState extends State<CarouselSliderUpload> {
               ],
             ),
 
-           30.height,
+           60.height,
 
           ],
         ),

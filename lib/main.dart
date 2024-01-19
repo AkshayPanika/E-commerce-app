@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'Screen_view/main_page.dart';
+import 'AB_New_project/Admin_folder/Admin_home_screen/admin_home_screen.dart';
 import 'firebase_options.dart';
 
 void main()async{
@@ -8,7 +8,7 @@ void main()async{
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const OnShop());
+  runApp( const OnShop());
 }
 
 class OnShop extends StatelessWidget {
@@ -18,7 +18,7 @@ class OnShop extends StatelessWidget {
   Widget build(BuildContext context) {
     return  const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainPage(),
+      home: AdminHomeScreen(),
     );
   }
 }

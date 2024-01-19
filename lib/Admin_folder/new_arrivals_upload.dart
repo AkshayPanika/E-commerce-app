@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:uuid/uuid.dart';
-import '../Reusable_widget/text_style_widget.dart';
+import '../Custom_widget/text_style_widget.dart';
 import 'admin_model.dart';
 
 class NewArrivalUpload extends StatefulWidget {
@@ -67,6 +67,7 @@ class _NewArrivalUploadState extends State<NewArrivalUpload> {
       UploadTask uploadTask = FirebaseStorage.instance.ref().child("newArrivals").child(Uuid().v1()).putFile(pickedImage!);
       TaskSnapshot taskSnapshot = await uploadTask;
       String downloadUrl = await taskSnapshot.ref.getDownloadURL();
+      //var UserData = ProductStoreModels(productId: 'id',productCategory: 'productCategory',productName: productName,productInitialPrice:productInitialPrice,productRatting:productRatting,productSize: ['productSize'],productColors:['productColors'],projectImage: [downloadUrl],productDescription: 'productDescription' );
       var userData = NewArrivalModels(imageUrl: downloadUrl, title: titleText, initialPrice: initialPriceText,ratting: rattingText).toMap();
          FirebaseFirestore.instance.collection("newArrivals").add(userData).then((value){
            imageId = value.id;

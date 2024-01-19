@@ -1,22 +1,24 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ecommerce_app/Custom_widget/cart_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import '../Admin_folder/admin_model.dart';
-import '../Reusable_widget/text_style_widget.dart';
-import '../Screen_view/details_page.dart';
+import '../../Custom_widget/text_style_widget.dart';
+import '../Details_screen/details_screen.dart';
 
-class NewArrivalsList extends StatefulWidget {
-  const NewArrivalsList({super.key});
+class NewArrivalProductList extends StatefulWidget {
+  const NewArrivalProductList({super.key});
 
   @override
-  State<NewArrivalsList> createState() => _NewArrivalsListState();
+  State<NewArrivalProductList> createState() => _NewArrivalProductListState();
 }
 
-class _NewArrivalsListState extends State<NewArrivalsList> {
+class _NewArrivalProductListState extends State<NewArrivalProductList> {
   bool isFavorite=false;
   bool toTap=false;
+
   @override
   Widget build(BuildContext context) {
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
@@ -42,8 +44,7 @@ class _NewArrivalsListState extends State<NewArrivalsList> {
                       Map<String,dynamic> userMap = snapshot.data!.docs[index].data() as Map<String,dynamic>;
 
                       return InkWell(
-                        child: Card(
-                          shape: const OutlineInputBorder(borderSide: BorderSide(color: Colors.black54)),
+                        child: CardWidget(
                           child: Stack(
                             children: [
                               Column(
@@ -81,21 +82,14 @@ class _NewArrivalsListState extends State<NewArrivalsList> {
                               ],)),
 
                               ///___ Favorite border icon
-                                  const Positioned(
+                                Positioned(
                                 right: -5,top: -5,
-                                child: InkWell(
-                                  child: Card(
-                                    shape: OutlineInputBorder(borderSide: BorderSide(color: Colors.black54)),
-                                    child: Padding(
-                                      padding: EdgeInsets.all(2.0),
-                                      child: Icon(
-                                        Icons.favorite_border,
-                                        color: Colors.black54,
-                                      ),
-                                    ),
-                                  ),
-
-                                ),
+                                child: CardWidgetWithPadding(
+                                  padding: 5,
+                                    child: InkWell(
+                                      onTap: (){ },
+                                      child:Icon(Icons.favorite,size: 25,color:Colors.grey) )
+                                )
                               )
                             ],
                           ),

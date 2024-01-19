@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import '../Reusable_widget/text_style_widget.dart';
+import '../Custom_widget/text_style_widget.dart';
 import 'carousel_slider_upload.dart';
 import 'new_arrivals_upload.dart';
 

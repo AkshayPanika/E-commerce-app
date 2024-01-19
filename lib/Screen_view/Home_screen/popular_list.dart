@@ -1,5 +1,6 @@
+import 'package:ecommerce_app/Custom_widget/cart_widget.dart';
 import 'package:flutter/material.dart';
-import '../Reusable_widget/text_style_widget.dart';
+import '../../Custom_widget/text_style_widget.dart';
 
 class PopularList extends StatefulWidget {
   const PopularList({super.key});
@@ -65,9 +66,8 @@ class _PopularListState extends State<PopularList> {
                     children: [
 
                       ///___ Card
-                       Card(
-                        shape: const OutlineInputBorder(borderSide: BorderSide(color: Colors.black54)),
-                        child:SizedBox(height: 50,width: 50,
+                       CardWidget(
+                        child:SizedBox(height: 60,width: 60,
                         child: Image.network(popularList[index]['imageUrl'].toString(),fit: BoxFit.fill,),
                         ),
                       ),

@@ -1,5 +1,7 @@
+import 'package:ecommerce_app/Custom_widget/cart_widget.dart';
 import 'package:flutter/material.dart';
-import '../Reusable_widget/text_style_widget.dart';
+import '../../Custom_widget/reusableTextWidget.dart';
+import '../../Custom_widget/text_style_widget.dart';
 
 class ShoppingPage extends StatefulWidget {
   const ShoppingPage({super.key});
@@ -35,43 +37,39 @@ class _ShoppingPageState extends State<ShoppingPage> {
                   padding: const EdgeInsets.symmetric(vertical:5.0),
                   child: Stack(
                     children: [
-                      Card(
-                        shape: const OutlineInputBorder(borderSide: BorderSide(color: Colors.black54)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(18.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
+                      CardWidgetWithPadding(
+                        padding: 10,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
 
-                                  ///___ Image
-                                   const Card(
-                                     shape: OutlineInputBorder(borderSide: BorderSide(color: Colors.black54)),
-                                     child: SizedBox(height: 100,width: 100,),
-                                   ),
+                                ///___ Image
+                                 const CardWidget(
+                                   child: SizedBox(height: 100,width: 100,),
+                                 ),
 
-                                  ///___ Text
-                                  10.width,
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "name",
-                                        style: textStyle15,),
-                                      5.height,
-                                     Text(
-                                         "Price",
-                                         //"${prices[index]}",
-                                         style: textStyle15),
-                                      5.height,
+                                ///___ Text
+                                10.width,
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "name",
+                                      style: textStyle15,),
+                                    5.height,
+                                   Text(
+                                       "Price",
+                                       //"${prices[index]}",
+                                       style: textStyle15),
+                                    5.height,
 
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ],
                         )
                       ),
                       const Positioned(
@@ -79,8 +77,7 @@ class _ShoppingPageState extends State<ShoppingPage> {
                           child: Icon(Icons.delete,size: 30,)),
                       Positioned(
                           right: 5,bottom: 5,
-                          child:   Card(
-                        shape: const OutlineInputBorder(borderSide: BorderSide(color: Colors.black54)),
+                          child:   CardWidget(
                         child: Padding(
                           padding:const EdgeInsets.symmetric(horizontal: 15,vertical: 5),
                           child: Row(
@@ -142,12 +139,10 @@ class _ShoppingPageState extends State<ShoppingPage> {
                     40.height,
 
 
-                     Card(
-                      shape: const OutlineInputBorder(borderSide: BorderSide(color: Colors.black54)),
+                     CardWidget(
                       child: ListTile(
                         title: Text("Price",style: textStyle15),
-                        trailing: Card(
-                            shape: const OutlineInputBorder(borderSide: BorderSide(color: Colors.black54)),
+                        trailing: CardWidget(
                             child: Padding(
                               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
                               child: Text("Go to pay",style: textStyle15),
@@ -168,19 +163,3 @@ class _ShoppingPageState extends State<ShoppingPage> {
 
 }
 
-class ReusableRowText extends StatelessWidget {
-  final String text1;
-  final String text2;
-  const ReusableRowText({super.key, required this.text1, required this.text2});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(text1),
-        Text(text2),
-      ],
-    );
-  }
-}
